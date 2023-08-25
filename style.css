@@ -1129,3 +1129,38 @@ text-align: center;
         padding: 0px;
     }
 }
+@media only screen and (orientation: protrait) {
+    :root {
+        --atom-size: 100px;
+    }
+
+    .social-button {
+        width: 25px;
+        height: 25px;
+    }
+
+        .social-button i {
+            font-size: 20px;
+        }
+
+    #apps-container {
+        display: block;
+    }
+
+        #apps-container > a {
+            margin: 2%;
+        }
+
+    .social-buttons {
+        /*padding: 0 20% 0 20%;*/
+        justify-content: center;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .parent {
+        padding: 0px;
+    }
+}

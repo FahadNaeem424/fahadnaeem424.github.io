@@ -31,7 +31,7 @@
                                 </main>
                             </div>
                             <div class='child'>
-                                <div style="">
+                                <div>
                                     <button type="button" id="user-menu-button" style="position: relative; height: auto;">
                                         <img src="Profile.jpg" style="height: 100px; width: 100px; " alt="" />
                                     </button>
@@ -73,10 +73,16 @@
                         <button id="image-button" onclick="googleSearch();" type="button" style="width: 10%;">
                             <i class="fa-regular fa-search"></i>
                         </button>
+                    </div>
+                    <div id="search-container" style="margin-top: 1%;">
+                        <div id="search-input-container" style="width: 90%;">
+                            <img src="youtube.png" alt="" />
+                            <input type="text" placeholder="Search anything" id="searchYoutube" onkeypress="handleKeyPressYoutube(event)" />
+                        </div>
 
-                        <!--<button id="mic-button" type="button" style="width: 10%;">
-                            <i class="fa-regular fa-microphone"></i>
-                        </button>-->
+                        <button id="image-button" onclick="youTubeSearch();" type="button" style="width: 10%;">
+                            <i class="fa-regular fa-search"></i>
+                        </button>
                     </div>
                     <div id="apps-container">
                         <a href="https://mail.google.com" target="_blank" id="link" class="applications">
@@ -233,9 +239,22 @@
         function googleSearch() {
             var text = document.getElementById("search").value;
             var cleanQuery = text.replace(" ", "+", text);
-            var url = 'http://www.google.com/search?q=' + cleanQuery;
-
-            window.location.href = url;
+            if(cleanQuery != "") {
+                window.location.href = 'http://www.google.com/search?q=' + cleanQuery;
+            }
+        }
+        function handleKeyPressYoutube(event) {
+            if (event.keyCode === 13) { // Check if the key pressed is Enter (key code 13)
+                event.preventDefault(); // Prevent the default form submission
+                youTubeSearch();
+            }
+        }
+        function youTubeSearch() {
+            var text = document.getElementById("searchYoutube").value;
+            var cleanQuery = text.replace(" ", "+", text);
+            if(cleanQuery != "") {
+                window.location.href = 'https://www.youtube.com/results?search_query=' + cleanQuery;
+            }  
         }
         const editableText = document.getElementById('editable-text');
         if (localStorage.getItem('savedText')) {
